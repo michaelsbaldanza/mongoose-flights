@@ -18,7 +18,7 @@ function newFlight(req, res) {
   const newFlightNo = getFlightNo();
   const newFlight = new Flight();
   const dt = newFlight.departs;
-  const departsDate = dt.toISOString().slice(0, 16);
+  let departsDate = dt.toISOString().slice(0, 16);
   res.render('flights/new', { departsDate: departsDate, newFlightNo: newFlightNo });
 };
 

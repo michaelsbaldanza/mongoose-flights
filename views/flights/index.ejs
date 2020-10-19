@@ -11,12 +11,22 @@
     </thead>
     <tbody>
       <% flights.forEach(function(f) { %>
-        <tr>
-          <td><%= f.airline %></td>
-          <td><%= f.airport %></td>
-          <td><%= f.flightNo %></td>
-          <td><%= f.departs %></td>
-        </tr>
+        <% let todaysDate = new Date(); %>
+        <% if (f.departs > todaysDate) { %>
+          <tr>
+            <td><%= f.airline %></td>
+            <td><%= f.airport %></td>
+            <td><%= f.flightNo %></td>
+            <td><%= f.departs %></td>
+          </tr>
+        <% } else { %>
+          <tr>
+            <td class="passed"><%= f.airline %></td>
+            <td class="passed"><%= f.airport %></td>
+            <td class="passed"><%= f.flightNo %></td>
+            <td class="passed"><%= f.departs %></td>
+          </tr>
+        <% }; %>
       <% }); %>
     </tbody>
   </table>

@@ -2,7 +2,7 @@
   <h3>Add Flight</h3>
   <form action="/flights" method="POST">
   <label>Airline:
-    <input type="text" name="airline">
+    <input type="text" name="airline" value="American">
   </label><br>
   <label>Airport:
     <select name="airport">
@@ -14,10 +14,10 @@
     </select>
   </label><br>
   <label>Flight #:
-    <input type="text" name="flightNo">
+    <input type="text" name="flightNo" value="<%= newFlightNo %>">
   </label>
   <label>Departure Date:
-    <input type="datetime-local" value="<%= departsDate %>">
+    <input type="datetime-local" name="date" value="<%= departsDate %>">
   </label><br>
   <input type="submit" value="Add Flight">
   </form>

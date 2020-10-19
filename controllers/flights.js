@@ -6,11 +6,20 @@ function index(req, res) {
   });
 };
 
+function getFlightNo() {
+  let newFlightNo = Math.floor(Math.random() * Math.floor(10000));
+  if (newFlightNo === 10000) newFlightNo -= 1;
+  if (newFlightNo < 1000) newFlightNo += 1000;
+  return newFlightNo;
+};
+
+
 function newFlight(req, res) {
+  const newFlightNo = getFlightNo();
   const newFlight = new Flight();
   const dt = newFlight.departs;
   const departsDate = dt.toISOString().slice(0, 16);
-  res.render('flights/new', { departsDate: departsDate });
+  res.render('flights/new', { departsDate: departsDate, newFlightNo: newFlightNo });
 };
 
 function create(req, res) {

@@ -1,7 +1,8 @@
 const Flight = require('../models/flights');
 
 function index(req, res) {
-  Flight.find({}).sort('date').exec(function(err, flights) {
+  Flight.find({}).sort('departs').exec(function(err, flights) {
+    console.log(flights);
     res.render('flights/index', { flights });
   });
 };

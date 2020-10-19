@@ -10,8 +10,9 @@
       </tr>
     </thead>
     <tbody>
+      <% let todaysDate = new Date(); %>
+      <% console.log(`Today's date is ${todaysDate}`); %>
       <% flights.forEach(function(f) { %>
-        <% let todaysDate = new Date(); %>
         <% if (f.departs > todaysDate) { %>
           <tr>
             <td><%= f.airline %></td>

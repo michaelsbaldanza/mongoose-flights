@@ -2,7 +2,6 @@ const Flight = require('../models/flights');
 
 function index(req, res) {
   Flight.find({}).sort('departs').exec(function(err, flights) {
-    console.log(flights);
     res.render('flights/index', { flights });
   });
 };
@@ -27,7 +26,6 @@ function create(req, res) {
   const flight = new Flight(req.body);
   flight.save(function(err) {
     if (err) return res.render('flights/new');
-    console.log(flight);
     res.redirect('/flights');
   });
 };
